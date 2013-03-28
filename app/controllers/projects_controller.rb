@@ -9,6 +9,12 @@ class ProjectsController < ApplicationController
       format.json { render json: @projects }
     end
   end
+  
+  def scrumboard
+  	@projects = Project.all
+  	
+  end
+  
 
   # GET /projects/1
   # GET /projects/1.json

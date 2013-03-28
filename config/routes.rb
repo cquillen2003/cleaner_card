@@ -1,5 +1,7 @@
 CleanerCard::Application.routes.draw do
   resources :projects
+  
+  match '/scrumboard' => 'projects#scrumboard'
 
 
   # The priority is based upon order of creation:
