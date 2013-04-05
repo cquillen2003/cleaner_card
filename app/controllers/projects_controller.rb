@@ -1,4 +1,7 @@
 class ProjectsController < ApplicationController
+	
+	respond_to :js
+	
   # GET /projects
   # GET /projects.json
   def index
@@ -12,6 +15,7 @@ class ProjectsController < ApplicationController
   
   def scrumboard
   	@projects = Project.all
+  	@project = Project.new
   	
   end
   
@@ -47,16 +51,22 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(params[:project])
-
-    respond_to do |format|
+		
+    
+    
+    #respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render json: @project, status: :created, location: @project }
+      	respond_with(@project)
+        #format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        #format.json { render json: @projects, status: :created, location: @project }
+        #format.js
+         
       else
-        format.html { render action: "new" }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        #format.html { render action: "new" }
+        #format.json { render json: @project.errors, status: :unprocessable_entity }
+        #format.js
       end
-    end
+    #end
   end
 
   # PUT /projects/1

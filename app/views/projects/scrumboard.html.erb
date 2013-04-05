@@ -2,13 +2,14 @@
 
 	.cards {
 		width: 150px;
+		margin: 4px 0;
 		background-color: maroon;
+		color: white;
 	}
 
 	.columns {
-		height: 500px;
-		width: 200px;
-		background-color: yellow;
+		height: 400px;
+		background-color: gray;
 	}
 
 
@@ -19,16 +20,26 @@
 <h1>ScrumBoard</h1>
 
 <div class="row">
-	<div class="span4 columns">
-		<p>ToDo (this week)</p>
-		<div class="cards">Item 1</div>
-		<div class="cards">Item 2</div>
-		<div class="cards">Item 3</div>
+	<div id="column-one" class="span3 columns">
+		<p>ToDo (all)</p>
+		<div class="input-append">
+			<%= form_for @project, :remote => true do |f| %>
+				<%= f.text_field :name, :class => "input-medium" %>
+				<%= f.submit "add", :class => "btn" %>
+			<% end %>
+		</div>		
+		<% @projects.each do |project| %>
+			<div class="cards"><%= project.name %></div>
+		<% end %>
+
 	</div>
-	<div class="span4 columns">
+	<div class="span3 columns">
+		<p>ToDo (this week)</p>
+	</div>
+	<div class="span3 columns">
 		<p>Started</p>
 	</div>
-	<div class="span4">
+	<div class="span3 columns">
 		<p>Done</p>
-	</div>
+	</div>	
 </div>
