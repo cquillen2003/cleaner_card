@@ -12,6 +12,13 @@
 		background-color: gray;
 	}
 
+	
+
+	.portlet { margin: 0 1em 1em 0; }
+  .portlet-header { margin: 0.3em; padding-bottom: 4px; padding-left: 0.2em; }
+  .portlet-header .ui-icon { float: right; }
+  .portlet-content { padding: 0.4em; }
+
 
 </style>
 
@@ -22,15 +29,20 @@
 <div class="row">
 	<div id="column-one" class="span3 columns">
 		<p>ToDo (all)</p>
+
 		<div class="input-append">
 			<%= form_for @project, :remote => true do |f| %>
 				<%= f.text_field :name, :class => "input-medium" %>
 				<%= f.submit "add", :class => "btn" %>
 			<% end %>
 		</div>		
+
 		<% @projects.each do |project| %>
 			<div class="cards"><%= project.name %></div>
-		<% end %>
+		<% end %>		
+
+		
+
 
 	</div>
 	<div class="span3 columns">
