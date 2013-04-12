@@ -1,7 +1,8 @@
-debugger;
-$('#column-one').append('<div class="cards">@project.name</div>');
 
+$('#column-one').append('<div class="portlets"><div class="portlet-header"><%= @project.name %></div><div class="portlet-content">Content</div></div>');
 
+//$('#column-one').append('<div class="cards"><%= @project.name %></div>');
+//debugger;
 
 $('#project_name').val('');
 
