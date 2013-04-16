@@ -12,7 +12,11 @@
 		background-color: gray;
 	}
 
-	.portlet { margin: 0 1em 1em 0; }
+	.portlet {
+		margin: 0 1em 1em 0; 
+		background-color: maroon;
+	}
+	
 	.portlet-header { margin: 0.3em; padding-bottom: 4px; padding-left: 0.2em; }
 	.portlet-header .ui-icon { float: right; }
 	.portlet-content { padding: 0.4em; }
@@ -38,7 +42,7 @@
 		<% @projects.each do |project| %>
 			<div class="portlet">
 				<div class="portlet-header"><%= project.name %></div>
-				<div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+				<div class="portlet-content">Lorem ipsum</div>
 			</div>
 		<% end %>
 

@@ -13,6 +13,7 @@ $(function() {
 
 //Stying and interaction for portlets
 
+/*
 $(function() {
 
 	$( ".portlet" ).addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" )
@@ -28,3 +29,4 @@ $(function() {
 	});
 	  
 });
+*/
