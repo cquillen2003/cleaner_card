@@ -1,0 +1,12 @@
+//alert("hello world!")
+
+$('#project-<%= @project.id %>').append('<%= form_for @task, :remote => true do |t| %><%= t.hidden_field :project_id, :value => @project.id %><%= t.text_field :name, :class => "input-medium" %><%= t.submit "add", :class => "btn" %><% end %>');
+
+$('#project-<%= @project.id %>').append('<% @project.tasks.each do |task| %><div><%= task.name %></div><% end %>');
+
+
+
+
+
+
+

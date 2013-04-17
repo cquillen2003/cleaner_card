@@ -1,5 +1,5 @@
 
-$('#column-one').append('<div id= "project-<%= @project.id %>" class="portlet"><div class="portlet-header"><%= @project.name %></div><div class="portlet-content"><%= link_to "Add task", new_task_path(:project_id => @project.id), :remote => true %></div></div>');
+$('#column-one').append('<div id= "project-<%= @project.id %>" class="portlet"><div class="portlet-header"><%= @project.name %></div><div class="portlet-content"><%= link_to "show details", project_path(@project.id), :remote => true %></div></div>');
 
 //$('#column-one').append('<div class="cards"><%= @project.name %></div>');
 //debugger;

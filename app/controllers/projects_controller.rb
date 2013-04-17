@@ -25,11 +25,13 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
+    @task = Task.new
+		respond_with(@project, @task)
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @project }
-    end
+    #respond_to do |format|
+      #format.html # show.html.erb
+      #format.json { render json: @project }
+    #end
   end
 
   # GET /projects/new
