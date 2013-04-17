@@ -33,6 +33,10 @@ class ProjectsController < ApplicationController
       #format.json { render json: @project }
     #end
   end
+  
+  def hide
+  	#Execute hide.js.erb
+  end
 
   # GET /projects/new
   # GET /projects/new.json

@@ -11,6 +11,17 @@ $(function() {
 });
 
 
+$(function() {
+	
+	$(".hide-link, #1").click(function() {
+		//debugger;
+		$(".portlet-content, #project-1").empty();
+	});
+		
+	
+});
+
+
 //Stying and interaction for portlets
 
 /*
