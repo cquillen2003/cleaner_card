@@ -16,6 +16,7 @@ class ProjectsController < ApplicationController
   def scrumboard
   	@projects = Project.all
   	@project = Project.new
+  	@task = Task.new
   	
   end
   

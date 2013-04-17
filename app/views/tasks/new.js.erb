@@ -1,0 +1,5 @@
+//from blog post: http://madebydna.com/all/code/2011/12/05/ajax-in-rails-3.html
+
+//alert("hello world!")
+
+$('#project-<%= params[:project_id] %>').append('<%= form_for @task, :remote => true do |t| %><%= t.hidden_field :project_id, :value => params[:project_id] %><%= t.text_field :name, :class => "input-medium" %><%= t.submit "add", :class => "btn" %><% end %>');

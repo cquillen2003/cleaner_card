@@ -1,4 +1,7 @@
 CleanerCard::Application.routes.draw do
+  resources :tasks
+
+
   resources :projects
   
   match '/scrumboard' => 'projects#scrumboard'
