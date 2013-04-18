@@ -1,5 +1,9 @@
 <style type="text/css">
 
+	body {
+		background-color: #E8E8E8;
+	}
+
 	.cards {
 		width: 150px;
 		margin: 4px 0;
@@ -9,12 +13,12 @@
 
 	.columns {
 		height: 650px;
-		background-color: gray;
+		background-color: white;
 	}
 
 	.portlet {
 		margin: 0 1em 1em 0; 
-		background-color: white;
+		background-color: #99CCFF;
 	}
 	
 	.portlet-header { margin: 0.3em; padding-bottom: 4px; padding-left: 0.2em; }
@@ -25,19 +29,18 @@
 </style>
 
 
-
-<h1>ScrumBoard</h1>
-
 <div class="row">
 	<div id="column-one" class="span3 columns">
-		<p>ToDo (all)</p>
+		<h5>ToDo (all)</h5>
 
 		<div class="input-append">
 			<%= form_for @project, :remote => true do |f| %>
 				<%= f.text_field :name, :class => "input-medium" %>
 				<%= f.submit "add", :class => "btn" %>
 			<% end %>
-		</div>		
+		</div>
+		
+		<button id="modal-button" type="button">Launch modal</button>		
 
 		<% @projects.each do |project| %>
 			<div class="portlet">
@@ -50,12 +53,27 @@
 
 	</div>
 	<div class="span3 columns">
-		<p>ToDo (this week)</p>
+		<h5>ToDo (this week)</h5>
 	</div>
 	<div class="span3 columns">
-		<p>Started</p>
+		<h5>Started</h5>
 	</div>
 	<div class="span3 columns">
-		<p>Done</p>
+		<h5>Done</h5>
 	</div>	
+</div>
+
+
+<div id="myModal" class="modal hide">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn">Close</a>
+    <a href="#" class="btn btn-primary">Save changes</a>
+  </div>
 </div>

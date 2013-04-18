@@ -17,7 +17,11 @@ $(function() {
 		//debugger;
 		$(".portlet-content, #project-1").empty();
 	});
-		
+	
+	$("#modal-button").click(function() {
+		debugger;
+		$("#myModal").modal('show');
+	});	
 	
 });
 
