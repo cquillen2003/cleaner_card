@@ -1,9 +1,12 @@
 
 $('#column-one').append('<div id= "project-<%= @project.id %>" class="portlet"><div class="portlet-header"><%= @project.name %></div><div class="portlet-content"><%= link_to "show details", project_path(@project.id), :remote => true %></div></div>');
 
-//$('#column-one').append('<div class="cards"><%= @project.name %></div>');
-//debugger;
 
+$("#myModal").modal('hide');
+debugger;
 $('#project_name').val('');
+$('#project_notes').val('');
+$('#project_status').val('');
+
 
 //alert("hello world!")

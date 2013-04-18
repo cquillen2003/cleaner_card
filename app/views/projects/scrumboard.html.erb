@@ -40,7 +40,7 @@
 			<% end %>
 		</div>
 		
-		<button id="modal-button" type="button">Launch modal</button>		
+		<button id="modal-button" type="button">Add project</button>		
 
 		<% @projects.each do |project| %>
 			<div class="portlet">
@@ -50,6 +50,8 @@
 				<div id= "project-<%= project.id %>" class="portlet-content"></div>
 			</div>
 		<% end %>
+		
+		
 
 	</div>
 	<div class="span3 columns">
@@ -67,13 +69,20 @@
 <div id="myModal" class="modal hide">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h3>Modal header</h3>
+    <h3>Add project</h3>
   </div>
-  <div class="modal-body">
-    <p>One fine body…</p>
+  <%= form_for @project, :remote => true do |f| %>
+  <div class="modal-body">		
+			<%= f.label :name, "Project Name" %>
+			<%= f.text_field :name, :class => "input-xlarge" %>
+			<%= f.label :notes, "Notes" %>
+			<%= f.text_area :notes, :class => "input-xlarge", :rows => 5 %>
+			<%= f.label :status, "Status" %>								
+			<%= f.select(:status, options_for_select([["Not Started", "Not Started"], ["Planned", "Planned"], ["In Progress", "In Progress"], ["Resolved", "Done"]])) %>				
   </div>
   <div class="modal-footer">
-    <a href="#" class="btn">Close</a>
-    <a href="#" class="btn btn-primary">Save changes</a>
+    <a href="#" data-dismiss="modal" class="btn">Close</a>
+    <%= f.submit "Add project", :class => "btn btn-primary" %>
   </div>
+  <% end %>
 </div>
