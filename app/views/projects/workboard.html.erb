@@ -1,0 +1,98 @@
+<style type="text/css">
+
+	body {
+		background-color: #E8E8E8;
+	}
+
+	.cards {
+		width: 150px;
+		margin: 4px 0;
+		background-color: maroon;
+		color: white;
+	}
+
+	.columns {
+		height: 650px;
+		background-color: white;
+	}
+
+	.portlet {
+		margin: 0 1em 1em 0; 
+		background-color: #99CCFF;
+	}
+	
+	.portlet-header { margin: 0.3em; padding-bottom: 4px; padding-left: 0.2em; }
+	.portlet-header .ui-icon { float: right; }
+	.portlet-content { padding: 0.4em; }
+
+
+</style>
+
+
+<div class="row">
+	<div id="column-one" class="span4 columns">
+		<h5>ToDo (this week)</h5>
+
+		<div class="input-append">
+			<%= form_for @project, :remote => true do |f| %>
+				<%= f.text_field :name, :class => "input-medium" %>
+				<%= f.submit "add", :class => "btn" %>
+			<% end %>
+		</div>
+		
+		<button id="modal-button" type="button">Add project</button>		
+
+		<% @projects.each do |project| %>
+			<div class="portlet">
+				<div class="portlet-header"><%= project.name %></div>
+				<%= link_to "show details", project_path(project.id), :remote => true %>
+				<%= link_to "hide details", 'javascript:;', :id => project.id, :class => "hide-link" %>
+				<div id= "project-<%= project.id %>" class="portlet-content"></div>
+			</div>
+		<% end %>
+		
+		
+
+	</div>
+	<div class="span4 columns">
+		<h5>Started</h5>
+	</div>
+	<div class="span4 columns">
+		<h5>Done</h5>
+	</div>
+
+</div>
+
+
+<div id="myModal" class="modal hide">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Add project</h3>
+  </div>
+  <%= nested_form_for @project, :remote => true do |f| %>
+  <div id="add-project" class="modal-body">		
+			<%= f.label :name, "Project Name" %>
+			<%= f.text_field :name, :class => "input-xlarge" %>
+			<%= f.label :notes, "Notes" %>
+			<%= f.text_area :notes, :class => "input-xlarge", :rows => 5 %>
+			<%= f.label :status, "Status" %>								
+			<%= f.select(:status, options_for_select([["Not Started", "Not Started"], ["Planned", "Planned"], ["In Progress", "In Progress"], ["Resolved", "Done"]])) %>	
+
+			<table id="table-<%= @project.id %>" class="table table-condensed">
+				<tr><th>Name</th><th>Due</th><th>Button</th></tr>
+			</table>
+
+			<%= f.fields_for :tasks do |ff| %>
+				<%= ff.label :name, "Task Name" %>
+				<%= ff.text_field :name, :class => "input-xlarge" %>
+			<% end %>
+			
+			<p><%= f.link_to_add "Add a task", :tasks %></p>
+
+	</div>
+  <div class="modal-footer">
+    <a href="#" data-dismiss="modal" class="btn">Close</a>
+    <%= f.submit "Add project", :class => "btn btn-primary" %>
+  </div>
+  <% end %>
+</div>

@@ -28,7 +28,8 @@ class TasksController < ApplicationController
   # GET /tasks/new.json
   def new
     @task = Task.new
-    respond_with(@task)
+    @project = Project.find_by_id(:id)
+    respond_with(@task, @project)
 
     #respond_to do |format|
       #format.html # new.html.erb

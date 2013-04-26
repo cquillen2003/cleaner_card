@@ -4,7 +4,9 @@ CleanerCard::Application.routes.draw do
 
   resources :projects
   
-  match '/scrumboard' => 'projects#scrumboard'
+  match '/planboard' => 'projects#planboard'
+  
+  match '/workboard' => 'projects#workboard'
 
 
   # The priority is based upon order of creation:

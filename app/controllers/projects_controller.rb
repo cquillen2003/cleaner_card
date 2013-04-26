@@ -13,10 +13,17 @@ class ProjectsController < ApplicationController
     end
   end
   
-  def scrumboard
+  def planboard
   	@projects = Project.all
   	@project = Project.new
   	@task = Task.new
+  	
+  end
+  
+  def workboard
+  	@projects = Project.all
+  	@project = Project.new
+  	@task = @project.tasks.build
   	
   end
   
@@ -42,6 +49,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new.json
   def new
     @project = Project.new
+    @task = Task.new
 
     respond_to do |format|
       format.html # new.html.erb

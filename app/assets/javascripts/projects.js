@@ -21,10 +21,14 @@ $(function() {
 	$("#modal-button").click(function() {
 		debugger;
 		$("#myModal").modal('show');
-	});	
+	});
 	
 });
 
+//This isn't working for some reason
+$(function() {
+	$("#due-date").datepicker();
+});
 
 //Stying and interaction for portlets
 

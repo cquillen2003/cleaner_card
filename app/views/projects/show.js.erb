@@ -1,9 +1,13 @@
 //alert("hello world!")
 
-$('#project-<%= @project.id %>').append('<%= form_for @task, :remote => true do |t| %><%= t.hidden_field :project_id, :value => @project.id %><%= t.text_field :name, :class => "input-medium" %><%= t.submit "add", :class => "btn" %><% end %>');
+//$('#project-<%= @project.id %>').append('<%= form_for @task, :remote => true do |t| %><%= t.hidden_field :project_id, :value => @project.id %><%= t.text_field :name, :class => "input-medium" %><%= t.submit "add", :class => "btn" %><% end %>');
 
-$('#project-<%= @project.id %>').append('<% @project.tasks.each do |task| %><div><%= task.name %></div><% end %>');
 
+$('#project-<%= @project.id %>').append('<table id="table-<%= @project.id %>" class="table table-condensed"><tr><th>Name</th><th>Due</th><th>Button</th></tr></table>');
+
+$('#table-<%= @project.id %>').append('<% @project.tasks.each do |task| %><tr><td><%= task.name %></td><td>Due</td><td></td></tr><% end %>');
+
+$('#table-<%= @project.id %>').append('<tr><%= form_for @task, :remote => true do |t| %><%= t.hidden_field :project_id, :value => @project.id %><td><%= t.text_field :name, :class => "input-medium" %></td><td><%= t.text_field :start_date, :id => "due-date", :class => "input-mini" %></td><td><%= t.submit "add", :class => "btn btn-mini" %></td><% end %></tr>');
 
 
 

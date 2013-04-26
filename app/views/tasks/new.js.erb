@@ -1,0 +1,2 @@
+
+$('#add-project').append('<%= f.fields_for @task do |ab| %><%= ab.hidden_field :project_id, :value => @project.id %><%= ab.text_field :name, :class => "input-medium" %><% end %>');
