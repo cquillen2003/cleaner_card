@@ -5,4 +5,9 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :tasks
   
   
+  def self.filter_by_status(status)
+  	where("status = ?", status)
+  end
+  
+  
 end

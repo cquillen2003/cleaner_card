@@ -42,8 +42,8 @@
 		
 		<button id="modal-button" type="button">Add project</button>		
 
-		<% @projects.each do |project| %>
-			<div class="portlet">
+		<% @not_started_projects.each_with_index do |project, index| %>
+			<div class="portlet" id= "portlet-<%= index + 1 %>">
 				<div class="portlet-header"><%= project.name %></div>
 				<%= link_to "show details", project_path(project.id), :remote => true %>
 				<%= link_to "hide details", 'javascript:;', :id => project.id, :class => "hide-link" %>
@@ -56,6 +56,16 @@
 	</div>
 	<div class="span4 columns">
 		<h5>Started</h5>
+		
+		<% @started_projects.each_with_index do |project, index| %>
+			<div class="portlet" id= "portlet-<%= index + 1 %>">
+				<div class="portlet-header"><%= project.name %></div>
+				<%= link_to "show details", project_path(project.id), :remote => true %>
+				<%= link_to "hide details", 'javascript:;', :id => project.id, :class => "hide-link" %>
+				<div id= "project-<%= project.id %>" class="portlet-content"></div>
+			</div>
+		<% end %>		
+		
 	</div>
 	<div class="span4 columns">
 		<h5>Done</h5>

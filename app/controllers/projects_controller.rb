@@ -21,7 +21,10 @@ class ProjectsController < ApplicationController
   end
   
   def workboard
-  	@projects = Project.all
+  	#@projects = Project.all
+
+  	@not_started_projects = Project.filter_by_status("Not Started")
+  	@started_projects = Project.filter_by_status("In Progress")
   	@project = Project.new
   	@task = @project.tasks.build
   	
