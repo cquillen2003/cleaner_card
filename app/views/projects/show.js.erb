@@ -2,6 +2,22 @@
 
 //$('#project-<%= @project.id %>').append('<%= form_for @task, :remote => true do |t| %><%= t.hidden_field :project_id, :value => @project.id %><%= t.text_field :name, :class => "input-medium" %><%= t.submit "add", :class => "btn" %><% end %>');
 
+<% if @project.status == "In Progress" %>
+	
+	
+	
+	
+	//alert($('#portlet-ip-<%= params[:index] %>').index());
+	
+	var row = $('#portlet-ip-<%= params[:index] %>').index() - 1;
+	
+	//alert(row)
+
+	$('.portlet-ip').eq(row).after('<p>Hello World!</p>');
+	$('.portlet-ns').eq(row).after('<p>Hello World!</p>');
+	
+	
+<% else %>
 
 $('#project-<%= @project.id %>').append('<table id="table-<%= @project.id %>" class="table table-condensed"><tr><th>Name</th><th>Due</th><th>Button</th></tr></table>');
 
@@ -9,7 +25,7 @@ $('#table-<%= @project.id %>').append('<% @project.tasks.each do |task| %><tr><t
 
 $('#table-<%= @project.id %>').append('<tr><%= form_for @task, :remote => true do |t| %><%= t.hidden_field :project_id, :value => @project.id %><td><%= t.text_field :name, :class => "input-medium" %></td><td><%= t.text_field :start_date, :id => "due-date", :class => "input-mini" %></td><td><%= t.submit "add", :class => "btn btn-mini" %></td><% end %></tr>');
 
-
+<% end %>
 
 
 

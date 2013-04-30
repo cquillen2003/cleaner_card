@@ -2,8 +2,8 @@
 //drag and drop accross columns
 $(function() {
 	
-	$( ".columns" ).sortable({
-			connectWith: ".columns"
+	$( ".columns" ).sortable( {
+		connectWith: ".columns"
 	});
 	
 	$( ".columns" ).disableSelection();
