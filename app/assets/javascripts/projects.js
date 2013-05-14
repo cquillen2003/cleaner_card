@@ -7,7 +7,31 @@ $(function() {
 		{ items: ".portlet"}
 	);
 	
+	$(".columns").on("sortstop", function( event, ui ) {
+		//alert(ui.item.context.id)
+		/* Attempt to change status with jQuery ajax call (couldn't get to work)
+		var status = "hello status!"
+		$.ajax({
+				type: "POST",
+				url: "/projects/1",
+				data: { status: status },
+				dataType: 'json',
+				processData: false
+		});
+		
+		$("#edit_project_4").submit(function() {
+			alert('handler for submit called');
+			return false;
+		});
+		*/
+		
+		$("#jquery_submit_0").trigger('click');	
+		 
+	});
+	
 	$( ".columns" ).disableSelection();
+	
+	
 	
 });
 
@@ -20,7 +44,7 @@ $(function() {
 	});
 	
 	$("#modal-button").click(function() {
-		debugger;
+		//debugger;
 		$("#myModal").modal('show');
 	});
 	
