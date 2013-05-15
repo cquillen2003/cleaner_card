@@ -25,7 +25,21 @@ $(function() {
 		});
 		*/
 		
-		$("#jquery_submit_0").trigger('click');	
+		if (ui.item.closest(".columns").attr("id") == "column-one") {
+			var status = "Not Started"
+		}
+		if (ui.item.closest(".columns").attr("id") == "column-two") {
+			var status = "In Progress"
+		}
+		if (ui.item.closest(".columns").attr("id") == "column-three") {
+			var status = "Done"
+		}
+		console.log(status)
+		//console.log(ui.item.closest(".columns").attr("id"))
+		//var = id_var = $(ui.item).closest(".columns").attr("id");
+		//alert(id_var)
+		$(ui.item).find(".status_field").val(status)
+		$(ui.item).find(".jquery_sub").trigger('click');
 		 
 	});
 	

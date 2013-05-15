@@ -69,8 +69,8 @@
 				<div class="portlet-header">
 					<strong><%= project.name %></strong><br />
 					<%= form_for project, :remote => true do |f| %>
-						<%= f.hidden_field :status, :value => "In Progress" %>
-						<%= f.submit :id => "jquery_submit_#{index}", :class => "hide" %>
+						<%= f.hidden_field :status, :value => "", :class => "status_field" %>
+						<%= f.submit :id => "jquery_submit_#{index}", :class => "hide jquery_sub" %>
 					<% end %>
 					<%= link_to "show details", project_path(project.id), :remote => true %>
 					<%= link_to "hide details", 'javascript:;', :id => project.id, :class => "hide-link" %>
@@ -103,7 +103,7 @@
 		<button id="modal-button" type="button">Add project</button>
 
 	</div>
-	<div class="span4 columns">
+	<div id="column-two" class="span4 columns">
 		
 		<% @started_projects.each_with_index do |project, index| %>
 			<div class="portlet portlet-ip" id="portlet-ip-<%= index + 1 %>">
@@ -117,7 +117,7 @@
 		<% end %>		
 		
 	</div>
-	<div class="span4 columns">
+	<div id="column-three" class="span4 columns">
 		
 	</div>
 
